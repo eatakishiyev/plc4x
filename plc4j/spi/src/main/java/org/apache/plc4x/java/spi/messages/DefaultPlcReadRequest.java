@@ -91,7 +91,7 @@ public class DefaultPlcReadRequest implements PlcReadRequest, PlcTagRequest, Ser
             String tagName = tagEntry.getKey();
             writeBuffer.pushContext(tagName);
             PlcTag tag = tagEntry.getValue();
-            if(!(tag instanceof Serializable)) {
+            if (!(tag instanceof Serializable)) {
                 throw new RuntimeException("Error serializing. Tag doesn't implement Serializable");
             }
             ((Serializable) tag).serialize(writeBuffer);
@@ -139,6 +139,8 @@ public class DefaultPlcReadRequest implements PlcReadRequest, PlcTagRequest, Ser
             tags.forEach((name, tagSupplier) -> parsedTags.put(name, tagSupplier.get()));
             return new DefaultPlcReadRequest(reader, parsedTags);
         }
+
+
     }
 
 }

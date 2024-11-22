@@ -34,8 +34,10 @@ public class ModbusTagHoldingRegister extends ModbusTag {
     public static final Pattern ADDRESS_SHORT_PATTERN = Pattern.compile("4x" + ModbusTag.FIXED_DIGIT_MODBUS_PATTERN + TagConfigParser.TAG_CONFIG_PATTERN);
 
     protected static final int REGISTER_MAXADDRESS = 65535;
+    private Map<String, String> config;
 
     public ModbusTagHoldingRegister(int address, Integer quantity, ModbusDataType dataType, Map<String, String> config) {
+
         super(address, quantity, dataType, config);
     }
 

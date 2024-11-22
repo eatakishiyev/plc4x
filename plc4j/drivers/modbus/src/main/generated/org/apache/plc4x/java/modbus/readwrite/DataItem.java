@@ -50,9 +50,12 @@ public class DataItem {
     if (EvaluationHelper.equals(dataType, ModbusDataType.BOOL)
         && EvaluationHelper.equals(numberOfValues, (int) 1)
         && EvaluationHelper.equals(bigEndian, (boolean) true)) { // BOOL
-      Short reservedField0 =
-          readReservedField("reserved", readUnsignedShort(readBuffer, 15), (short) 0x0000);
-
+//        try {
+//            Short reservedField0 =
+//                readReservedField("reserved", readUnsignedShort(readBuffer, 15), (short) 0x0000);
+//        }catch (Exception e){
+//
+//        }
       boolean value = readSimpleField("value", readBoolean(readBuffer));
       return new PlcBOOL(value);
     } else if (EvaluationHelper.equals(dataType, ModbusDataType.BOOL)
